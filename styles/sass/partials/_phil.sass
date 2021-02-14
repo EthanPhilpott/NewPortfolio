@@ -1,0 +1,41 @@
+// <div class="phil">
+//     <div class="eye rng-color"></div>
+//     <div class="mouth">
+//         <div class="smile rng-color"></div>
+//         <div class="smile-hole"></div>
+//         <div class="smile-half"></div>
+//     </div>
+//     <div class="eye rng-color"></div>
+// </div>
+
+.phil
+    opacity: 0
+    grid-row: 1 / 2
+    grid-column: 1 / 2
+    @include FlexCenter (row)
+    gap: 100px
+    animation: FadeIn .5s ease 4s
+    animation-fill-mode: both
+    .eye
+        @include WidthHeight (35px, 35px)
+        @include FlexCenter (row)
+        border-radius: 50%
+    .mouth
+        display: grid
+        justify-items: center
+        align-items: center
+        *
+            grid-row: 1 / 2
+            grid-column: 1 / 2
+            border-radius: 50%
+            background-color: map-get($palette, "background")
+        .smile
+            @include WidthHeight (100px, 90px)
+        .smile-half
+            @include WidthHeight (100px, 50px)
+            align-self: flex-start
+            border-radius: 0
+        .smile-hole
+            @include WidthHeight (50px , 50px)
+            border-radius: 50%
+            background-color: map-get($palette, "background")

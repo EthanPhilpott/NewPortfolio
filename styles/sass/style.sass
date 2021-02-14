@@ -1,0 +1,83 @@
+@import "partials/_common.sass"
+
+// Variables
+
+$palette: ("background": #201f20, "white": #fcecf2, "pink": #EF476F, "yellow": #FFD166, "green": #06D6A0, "blue": #118AB2, "navy": #073B4C)
+$font-stack: 'Raleway', sans-serif
+
+// Styles
+
+.opcaity-1
+    opacity: 1
+
+body
+    background: map-get($palette, "background")
+    display: grid
+    .loading
+        height: 100vh
+        grid-row: 1 / 2
+        grid-column: 1 / 2
+        @include FlexCenter (column)
+        animation: FadeOut .5s ease 6s
+        animation-fill-mode: forwards
+        .tip
+            @include FlexCenter (row)
+            @include WidthHeight (auto, 100px)
+            color: map-get($palette, "white")
+            font-family: $font-stack
+            font-size: 50px
+            overflow: hidden
+            .padding-left
+                padding-left: 20px
+            .padding-right
+                padding-right: 20px
+            *
+                transform: translate(0, 100px)
+                opacity: 0
+            @for $i from 1 through 16
+                h1:nth-child(#{$i})
+                    animation: TextSlideUp .5s ease #{($i * 0.1)}s
+                    animation-fill-mode: both
+        .underline
+            animation: Extend 1s ease 2s
+            opacity: 0
+            animation-fill-mode: both
+            width: 0
+            height: 10px
+            background-color: map-get($palette, "white")
+        .website-divs
+            margin-top: 10px
+            font-family: 'Raleway', sans-serif
+            font-size: 22.5px
+            font-weight: 400
+            letter-spacing: 2px
+            color: map-get($palette, "white")
+            opacity: 0
+            animation: FadeIn 1s ease 3s
+            animation-fill-mode: both
+    .main-content
+        font-family: $font-stack
+        opacity: 0
+        animation: FadeIn 1s ease 6.5s
+        animation-fill-mode: both
+        grid-row: 1 / 2
+        grid-column: 1 / 2
+        header
+            h1
+                color: map-get($palette, "white")
+                letter-spacing: 1px
+                span
+                    padding: 0 5px
+            nav
+
+@keyframes TextSlideUp
+    100%
+        transform: translate(0, 0)
+        opacity: 1
+
+@keyframes Extend
+    50%
+        opacity: 1
+    100%
+        width: 1000px
+        opacity: 1
