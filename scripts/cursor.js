@@ -10,6 +10,8 @@ let cursor = $("<div></div>").css({
     borderRadius: "50%",
     opacity: 0,
     transition: "opacity .25s",
+    zIndex: 99,
+    pointerEvents: "none",
 });
 
 $(document.body).append(cursor);

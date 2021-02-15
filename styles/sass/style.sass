@@ -7,13 +7,12 @@ $font-stack: 'Raleway', sans-serif
 
 // Styles
 
-.opcaity-1
-    opacity: 1
-
 body
     background: map-get($palette, "background")
     display: grid
     .loading
+        position: relative
+        z-index: 0
         height: 100vh
         grid-row: 1 / 2
         grid-column: 1 / 2
@@ -62,13 +61,58 @@ body
         animation-fill-mode: both
         grid-row: 1 / 2
         grid-column: 1 / 2
+        height: 100vh
+        position: relative
+        z-index: 1
         header
+            padding: 30px
+            display: flex
+            align-items: center
+            .moonSun
+                display: grid
+                @include WidthHeight (55px, 55px)
+                align-items: center
+                justify-items: center
+                input
+                    grid-row: 1 / 2
+                    grid-column: 1 / 2
+                    appearance: none
+                    z-index: 2
+                    @include WidthHeight (55px, 55px)
+                    &:hover
+                        ~.moonSun-base
+                            @include WidthHeight (55px, 55px)
+                        ~.moonSun-cutout
+                            @include WidthHeight (42.5px, 42.5px)
+                    &:checked
+                        ~.moonSun-base
+                            background-color: lighten(map-get($palette, "yellow"), 6.25%)
+                        ~.moonSun-cutout
+                            @include WidthHeight (0px, 0px)
+
+                *
+                    transition: width .5s, height .5s, background-color .5s
+                .moonSun-base
+                    grid-row: 1 / 2
+                    grid-column: 1 / 2
+                    background-color: map-get($palette, "yellow")
+                    @include WidthHeight (50px, 50px)
+                    border-radius: 50%
+                .moonSun-cutout
+                    grid-row: 1 / 2
+                    grid-column: 1 / 2
+                    align-self: flex-start
+                    justify-self: flex-start
+                    background-color: map-get($palette, "background")
+                    @include WidthHeight (40px, 40px)
+                    border-radius: 50%
+
             h1
                 color: map-get($palette, "white")
+                font-weight: 400
                 letter-spacing: 1px
-                span
+                .space-logo
                     padding: 0 5px
-            nav
 
 @keyframes TextSlideUp
     100%
