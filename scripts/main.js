@@ -6,7 +6,3 @@ $(".rng-color").css(
     "color",
     RNG_POSSIBLE_COLORS[Math.floor(Math.random() * RNG_POSSIBLE_COLORS.length)]
 );
-
-$("#moon").on("click", () => {
-    $(this).css({});
-});
