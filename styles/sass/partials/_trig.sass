@@ -1,3 +1,9 @@
+$PI: 3.14159265358979323846
+$TWO_PI: $PI * 2
+$HALF_PI: $PI / 2
+$QUARTER_PI: $PI / 4
+$SIN_ITERATION: 10
+
 @function factorial($endAt, $startAt: 1, $currentVal: 1)
     $accVal: $currentVal
 
@@ -5,12 +11,6 @@
         $accVal: $i * $accVal
 
     @return $accVal
-
-$PI: 3.14159265358979323846
-$TWO_PI: $PI * 2
-$HALF_PI: $PI / 2
-$QUARTER_PI: $PI / 4
-$SIN_ITERATION: 10
 
 @function sin($rad)
     // Ensure value is between 0 to TWO_PI

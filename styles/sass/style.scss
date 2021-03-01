@@ -1,0 +1,173 @@
+@import "partials/_common.sass";
+@import "partials/_trig.sass";
+
+// Variables
+
+$palette: (
+    "black": #201f20,
+    "white": #fffafc,
+    "pink": #ef476f,
+    "yellow": #ffd166,
+    "green": #06d6a0,
+    "blue": #118ab2,
+    "navy": #073b4c,
+);
+
+$amts: (
+    pedals1: (
+        parent: ".pedals1",
+        target: ".pedal-shell",
+        number: 12,
+        offset: 0,
+        distance: 30,
+    ),
+    pedals2: (
+        parent: ".pedals2",
+        target: ".pedal-shell",
+        number: 12,
+        offset: $PI / 12,
+        distance: 40,
+    ),
+    pedals3: (
+        parent: ".pedals3",
+        target: ".pedal-shell",
+        number: 6,
+        offset: $PI / 12,
+        distance: 50,
+    ),
+    dots1: (
+        parent: ".dots1",
+        target: ".ring-body",
+        number: 6,
+        offset: $PI / 12,
+        distance: 60,
+    ),
+);
+
+$elems: 2;
+
+@function GiveRange($start, $end, $step, $unit: "") {
+    $i: $start;
+    $list: ();
+    @while $i <= $end {
+        $list: append($list, "#{$i}px");
+        $i: $i + $step;
+    }
+    @return $list;
+}
+
+@mixin CircleDivs($parent, $target, $amt, $turn, $offset, $dist) {
+    @for $i from 1 through $amt {
+        #{$parent} #{$target}:nth-child(#{$i}) {
+            transform: translate(
+                    #{cos($i * $turn + $offset) * $dist}px,
+                    #{sin($i * $turn + $offset) * $dist}px
+                )
+                rotate(#{$i * $turn + $offset}rad);
+        }
+    }
+}
+
+@mixin AddClasses($map) {
+    @each $key, $prop in $map {
+        @if nth($prop, 1) == "noncustom" {
+            @each $item in nth($prop, 2) {
+                .#{$key}-#{$item} {
+                    #{$key}: #{$item};
+                }
+            }
+        } @else {
+            @if $key == "radius" {
+                @each $_, $item in nth($prop, 2) {
+                    @include CircleDivs(
+                        map-get($item, "parent"),
+                        map-get($item, "target"),
+                        map-get($item, "number"),
+                        $TWO_PI / map-get($item, "number"),
+                        map-get($item, "offset"),
+                        map-get($item, "distance")
+                    );
+                }
+            } @else if $key == "dord" {
+            }
+        }
+    }
+}
+
+@include AddClasses(
+    (
+        width: (
+            "noncustom",
+            GiveRange(0, 200, 1, "px"),
+        ),
+        height: (
+            "noncustom",
+            GiveRange(0, 200, 1, "px"),
+        ),
+        radius: (
+            "custom",
+            $amts,
+        ),
+    )
+);
+
+// Styles
+
+body {
+    .intro {
+        height: 100vh;
+        background-color: map-get($palette, "white");
+        @include FlexCenter(row);
+        width: 100vw;
+    }
+}
+
+.mandala {
+    transform: scale(3);
+    animation: Spin 15s 0 linear;
+    animation-iteration-count: infinite;
+    display: grid;
+    * {
+        position: relative;
+        justify-self: center;
+        align-self: center;
+        display: grid;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        * {
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+        }
+    }
+    .pedal {
+        width: auto;
+        height: auto;
+        .pedal-shell {
+            display: flex;
+            align-items: center;
+            border-radius: 0 50% 50% 0;
+            background-color: brown;
+            .pedal-whitespace {
+                background-color: map-get($palette, "white");
+                border-radius: 0 50% 50% 0;
+            }
+        }
+    }
+    .ring-body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: brown;
+        border-radius: 50%;
+        .ring-whitespace {
+            background-color: map-get($palette, "white");
+            border-radius: 50%;
+        }
+    }
+}
+
+@keyframes Spin {
+    to {
+        transform: scale(3) rotate(360deg);
+    }
+}

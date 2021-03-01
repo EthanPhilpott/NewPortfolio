@@ -1,16 +1,13 @@
-- let innerPedals = 12
+- let thickness = 10
 
-mixin Pedal( width, height, ring_size, dash_or_dot)
-    .pedal.pedal-shell.(class="ring-r" + ring_size)
-        .pedal.pedal-whitespace 
-            if dash_or_dot === 'dash'
-                .pedal.pedal-dash 
-            else
-                .pedal.pedal-dot
+mixin Pedal(width, height)
+    .pedal-shell(class=`width-${width}px height-${height}px`)
+        .pedal-whitespace(class=`width-${width - thickness / 2}px height-${height - thickness}px`)
 
-mixin Ring()
-    .ring-body(class="ring-r" + ring_size)
-        .ring-whitespace 
+mixin Ring(size, hallow)
+    .ring-body(class=`width-${size}px height-${size}px`)
+        if hallow 
+            .ring-whitespace(class=`width-${size - thickness}px height-${size - thickness}px`)
 
 doctype html
 head
@@ -25,10 +22,23 @@ head
     link(rel='shortcut icon' href='' type='image/x-icon')
 body 
     .intro
-        div 
-            - for (let i = 0; i < innerPedals; i++)
-                +Pedal('dash', 50)
-        +Ring 
+        .mandala 
+            +Ring(125, true)
+            .pedal.pedals3  
+                - for (let i = 0; i < 6; i++)
+                    +Pedal(50, 50)
+            //- .dot.dots1 
+            //-     - for (let i = 0; i < 6; i++)
+            //-         +Ring(12, true)
+            +Ring(100, true)
+            .pedal.pedals2  
+                - for (let i = 0; i < 12; i++)
+                    +Pedal(30, 20)
+            .pedal.pedals1  
+                - for (let i = 0; i < 12; i++)
+                    +Pedal(20, 20)
+            +Ring(50, true) 
+            +Ring(25, true) 
 
     .main-content 
 
