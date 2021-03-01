@@ -1,13 +1,41 @@
-- let thickness = 10
+- let thickness = 5;
 
 mixin Pedal(width, height)
     .pedal-shell(class=`width-${width}px height-${height}px`)
-        .pedal-whitespace(class=`width-${width - thickness / 2}px height-${height - thickness}px`)
+        .pedal-whitespace(class=`width-${Math.floor(width - thickness / 2)}px height-${height - thickness}px`)
 
 mixin Ring(size, hallow)
     .ring-body(class=`width-${size}px height-${size}px`)
         if hallow 
             .ring-whitespace(class=`width-${size - thickness}px height-${size - thickness}px`)
+
+mixin Dash(width, height)
+    .dash-body(class=`width-${width}px height-${height}px`)
+
+mixin ForPedal(index, amt, width, height)
+    .pedal(class=`pedals${index}`)
+        - for (let i = 0; i < amt; i++)
+            +Pedal(width, height)
+
+mixin ForDash(index, amt, width, height)
+    .dash(class=`dashes${index}`)
+        - for (let i = 0; i < amt; i++)
+            +Dash(width, height)
+
+mixin ForDot(index, amt, size)
+    .dot(class=`dots${index}`)
+        - for (let i = 0; i < amt; i++)
+            +Ring(size, false)
+
+//- .dot.dots1 
+//-     - for (let i = 0; i < 6; i++)
+//-         +Ring(12, true)
+
+//- .dash.dashes2
+//-     - for (let i = 0; i < 6; i++)
+//-         .dash-cont1
+//-             - for (let j = 0; j < 3; j++)
+//-                 +Dash(10, 5)
 
 doctype html
 head
@@ -22,24 +50,24 @@ head
     link(rel='shortcut icon' href='' type='image/x-icon')
 body 
     .intro
-        .mandala 
-            +Ring(125, true)
-            .pedal.pedals3  
-                - for (let i = 0; i < 6; i++)
-                    +Pedal(50, 50)
-            //- .dot.dots1 
-            //-     - for (let i = 0; i < 6; i++)
-            //-         +Ring(12, true)
-            +Ring(100, true)
-            .pedal.pedals2  
-                - for (let i = 0; i < 12; i++)
-                    +Pedal(30, 20)
-            .pedal.pedals1  
-                - for (let i = 0; i < 12; i++)
-                    +Pedal(20, 20)
-            +Ring(50, true) 
-            +Ring(25, true) 
-
+        .mandala
+            +ForDash(3, 24, 10, 5)
+            +ForPedal(7, 24, 20, 20)
+            +Ring(165, true)
+            +Ring(155, true)
+            +ForPedal(6, 12, 25, 25)
+            +ForPedal(5, 12, 35, 25)
+            +ForDot(1, 12, 5, 5)
+            +ForDash(2, 12, 10, 5)
+            +ForPedal(4, 12, 35, 25)
+            +ForDash(1, 12, 10, 5)
+            +Ring(80, true)
+            +Ring(70, true)
+            +ForPedal(3, 6, 30, 20)
+            +ForPedal(2, 6, 20, 20)
+            +ForPedal(1, 12, 10, 10)
+            +Ring(25, true)
+            +Ring(10, false)
     .main-content 
 
 

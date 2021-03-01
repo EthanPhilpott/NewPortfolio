@@ -4,8 +4,8 @@
 // Variables
 
 $palette: (
-    "black": #201f20,
-    "white": #fffafc,
+    "bg": #201f20,
+    "line": #fffafc,
     "pink": #ef476f,
     "yellow": #ffd166,
     "green": #06d6a0,
@@ -19,39 +19,100 @@ $amts: (
         target: ".pedal-shell",
         number: 12,
         offset: 0,
-        distance: 30,
+        distance: 17,
     ),
     pedals2: (
         parent: ".pedals2",
         target: ".pedal-shell",
-        number: 12,
-        offset: $PI / 12,
-        distance: 40,
+        number: 6,
+        offset: $PI / 6,
+        distance: 20,
     ),
     pedals3: (
         parent: ".pedals3",
         target: ".pedal-shell",
         number: 6,
+        offset: 0,
+        distance: 20,
+    ),
+    pedals4: (
+        parent: ".pedals4",
+        target: ".pedal-shell",
+        number: 12,
         offset: $PI / 12,
-        distance: 50,
+        distance: 40,
+    ),
+    pedals5: (
+        parent: ".pedals5",
+        target: ".pedal-shell",
+        number: 12,
+        offset: 0,
+        distance: 60,
+    ),
+    pedals6: (
+        parent: ".pedals6",
+        target: ".pedal-shell",
+        number: 12,
+        offset: $PI / 12,
+        distance: 60,
+    ),
+    pedals7: (
+        parent: ".pedals7",
+        target: ".pedal-shell",
+        number: 24,
+        offset: $PI / 24,
+        distance: 85,
+    ),
+    pedals8: (
+        parent: ".pedals8",
+        target: ".pedal-shell",
+        number: 8,
+        offset: 0,
+        distance: 100,
+    ),
+    dashes1: (
+        parent: ".dashes1",
+        target: ".dash-body",
+        number: 12,
+        offset: $PI / 12,
+        distance: 41,
+    ),
+    dashes2: (
+        parent: ".dashes2",
+        target: ".dash-body",
+        number: 12,
+        offset: 0,
+        distance: 47,
+    ),
+    dashes3: (
+        parent: ".dashes3",
+        target: ".dash-body",
+        number: 24,
+        offset: 0,
+        distance: 85,
     ),
     dots1: (
         parent: ".dots1",
         target: ".ring-body",
-        number: 6,
-        offset: $PI / 12,
-        distance: 60,
+        number: 12,
+        offset: 0,
+        distance: 65,
     ),
 );
 
-$elems: 2;
-
-@function GiveRange($start, $end, $step, $unit: "") {
-    $i: $start;
+@function FromTo($from, $to) {
+    $onoff: true;
     $list: ();
-    @while $i <= $end {
+    $i: $from;
+    @while $i <= $to {
         $list: append($list, "#{$i}px");
-        $i: $i + $step;
+        @if $onoff {
+            $onoff: false;
+            $i: $i + 2;
+        } @else {
+            $onoff: true;
+            $i: $i + 3;
+        }
     }
     @return $list;
 }
@@ -88,7 +149,6 @@ $elems: 2;
                         map-get($item, "distance")
                     );
                 }
-            } @else if $key == "dord" {
             }
         }
     }
@@ -98,11 +158,11 @@ $elems: 2;
     (
         width: (
             "noncustom",
-            GiveRange(0, 200, 1, "px"),
+            FromTo(0, 200),
         ),
         height: (
             "noncustom",
-            GiveRange(0, 200, 1, "px"),
+            FromTo(0, 200),
         ),
         radius: (
             "custom",
@@ -115,16 +175,16 @@ $elems: 2;
 
 body {
     .intro {
+        background-color: map-get($palette, "bg");
         height: 100vh;
-        background-color: map-get($palette, "white");
         @include FlexCenter(row);
         width: 100vw;
     }
 }
 
 .mandala {
-    transform: scale(3);
-    animation: Spin 15s 0 linear;
+    transform: scale(0.5);
+    animation: Spin 60s 0 linear;
     animation-iteration-count: infinite;
     display: grid;
     * {
@@ -146,9 +206,9 @@ body {
             display: flex;
             align-items: center;
             border-radius: 0 50% 50% 0;
-            background-color: brown;
+            background-color: map-get($palette, "line");
             .pedal-whitespace {
-                background-color: map-get($palette, "white");
+                background-color: map-get($palette, "bg");
                 border-radius: 0 50% 50% 0;
             }
         }
@@ -157,17 +217,23 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: brown;
+        background-color: map-get($palette, "line");
         border-radius: 50%;
         .ring-whitespace {
-            background-color: map-get($palette, "white");
+            background-color: map-get($palette, "bg");
             border-radius: 50%;
+        }
+    }
+    .dash {
+        .dash-body {
+            border-radius: 50%;
+            background-color: map-get($palette, "line");
         }
     }
 }
 
 @keyframes Spin {
     to {
-        transform: scale(3) rotate(360deg);
+        transform: scale(0.5) rotate(360deg);
     }
 }
