@@ -50,24 +50,27 @@ head
     link(rel='shortcut icon' href='' type='image/x-icon')
 body 
     .intro
-        .mandala
-            +ForDash(3, 24, 10, 5)
-            +ForPedal(7, 24, 20, 20)
-            +Ring(165, true)
-            +Ring(155, true)
-            +ForPedal(6, 12, 25, 25)
-            +ForPedal(5, 12, 35, 25)
-            +ForDot(1, 12, 5, 5)
-            +ForDash(2, 12, 10, 5)
-            +ForPedal(4, 12, 35, 25)
-            +ForDash(1, 12, 10, 5)
-            +Ring(80, true)
-            +Ring(70, true)
-            +ForPedal(3, 6, 30, 20)
-            +ForPedal(2, 6, 20, 20)
-            +ForPedal(1, 12, 10, 10)
-            +Ring(25, true)
-            +Ring(10, false)
+        .mandalas 
+            - for (let i = 0; i < 6; i++)
+                .mandala-cont
+                    .mandala
+                        +ForDash(3, 24, 10, 5)
+                        +ForPedal(7, 24, 20, 20)
+                        +Ring(165, true)
+                        +Ring(155, true)
+                        +ForPedal(6, 12, 25, 25)
+                        +ForPedal(5, 12, 35, 25)
+                        +ForDot(1, 12, 5, 5)
+                        +ForDash(2, 12, 10, 5)
+                        +ForPedal(4, 12, 35, 25)
+                        +ForDash(1, 12, 10, 5)
+                        +Ring(80, true)
+                        +Ring(70, true)
+                        +ForPedal(3, 6, 30, 20)
+                        +ForPedal(2, 6, 20, 20)
+                        +ForPedal(1, 12, 10, 10)
+                        +Ring(25, true)
+                        +Ring(10, false)
     .main-content 
 
 

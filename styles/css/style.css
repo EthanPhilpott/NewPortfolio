@@ -682,63 +682,63 @@ button, input {
 }
 
 .pedals1 .pedal-shell:nth-child(1) {
-  -webkit-transform: translate(14.72243px, 8.5px) rotate(0.5236rad);
-          transform: translate(14.72243px, 8.5px) rotate(0.5236rad);
+  -webkit-transform: translate(13.85641px, 8px) rotate(0.5236rad);
+          transform: translate(13.85641px, 8px) rotate(0.5236rad);
 }
 
 .pedals1 .pedal-shell:nth-child(2) {
-  -webkit-transform: translate(8.5px, 14.72243px) rotate(1.0472rad);
-          transform: translate(8.5px, 14.72243px) rotate(1.0472rad);
+  -webkit-transform: translate(8px, 13.85641px) rotate(1.0472rad);
+          transform: translate(8px, 13.85641px) rotate(1.0472rad);
 }
 
 .pedals1 .pedal-shell:nth-child(3) {
-  -webkit-transform: translate(0px, 17px) rotate(1.5708rad);
-          transform: translate(0px, 17px) rotate(1.5708rad);
+  -webkit-transform: translate(0px, 16px) rotate(1.5708rad);
+          transform: translate(0px, 16px) rotate(1.5708rad);
 }
 
 .pedals1 .pedal-shell:nth-child(4) {
-  -webkit-transform: translate(-8.5px, 14.72243px) rotate(2.0944rad);
-          transform: translate(-8.5px, 14.72243px) rotate(2.0944rad);
+  -webkit-transform: translate(-8.0px, 13.85641px) rotate(2.0944rad);
+          transform: translate(-8.0px, 13.85641px) rotate(2.0944rad);
 }
 
 .pedals1 .pedal-shell:nth-child(5) {
-  -webkit-transform: translate(-14.72243px, 8.5px) rotate(2.61799rad);
-          transform: translate(-14.72243px, 8.5px) rotate(2.61799rad);
+  -webkit-transform: translate(-13.85641px, 8px) rotate(2.61799rad);
+          transform: translate(-13.85641px, 8px) rotate(2.61799rad);
 }
 
 .pedals1 .pedal-shell:nth-child(6) {
-  -webkit-transform: translate(-17.0px, 0px) rotate(3.14159rad);
-          transform: translate(-17.0px, 0px) rotate(3.14159rad);
+  -webkit-transform: translate(-16.0px, 0px) rotate(3.14159rad);
+          transform: translate(-16.0px, 0px) rotate(3.14159rad);
 }
 
 .pedals1 .pedal-shell:nth-child(7) {
-  -webkit-transform: translate(-14.72241px, -8.5px) rotate(3.66519rad);
-          transform: translate(-14.72241px, -8.5px) rotate(3.66519rad);
+  -webkit-transform: translate(-13.85639px, -8.0px) rotate(3.66519rad);
+          transform: translate(-13.85639px, -8.0px) rotate(3.66519rad);
 }
 
 .pedals1 .pedal-shell:nth-child(8) {
-  -webkit-transform: translate(-8.49981px, -14.72243px) rotate(4.18879rad);
-          transform: translate(-8.49981px, -14.72243px) rotate(4.18879rad);
+  -webkit-transform: translate(-7.99982px, -13.85641px) rotate(4.18879rad);
+          transform: translate(-7.99982px, -13.85641px) rotate(4.18879rad);
 }
 
 .pedals1 .pedal-shell:nth-child(9) {
-  -webkit-transform: translate(0px, -17.0px) rotate(4.71239rad);
-          transform: translate(0px, -17.0px) rotate(4.71239rad);
+  -webkit-transform: translate(0px, -16.0px) rotate(4.71239rad);
+          transform: translate(0px, -16.0px) rotate(4.71239rad);
 }
 
 .pedals1 .pedal-shell:nth-child(10) {
-  -webkit-transform: translate(8.5px, -14.72241px) rotate(5.23599rad);
-          transform: translate(8.5px, -14.72241px) rotate(5.23599rad);
+  -webkit-transform: translate(8px, -13.85639px) rotate(5.23599rad);
+          transform: translate(8px, -13.85639px) rotate(5.23599rad);
 }
 
 .pedals1 .pedal-shell:nth-child(11) {
-  -webkit-transform: translate(14.72243px, -8.49981px) rotate(5.75959rad);
-          transform: translate(14.72243px, -8.49981px) rotate(5.75959rad);
+  -webkit-transform: translate(13.85641px, -7.99982px) rotate(5.75959rad);
+          transform: translate(13.85641px, -7.99982px) rotate(5.75959rad);
 }
 
 .pedals1 .pedal-shell:nth-child(12) {
-  -webkit-transform: translate(17px, 0px) rotate(6.28319rad);
-          transform: translate(17px, 0px) rotate(6.28319rad);
+  -webkit-transform: translate(16px, 0px) rotate(6.28319rad);
+          transform: translate(16px, 0px) rotate(6.28319rad);
 }
 
 .pedals2 .pedal-shell:nth-child(1) {
@@ -1441,9 +1441,38 @@ button, input {
           transform: translate(65px, 0px) rotate(6.28319rad);
 }
 
+.mandalas .mandala-cont:nth-child(1) {
+  -webkit-transform: translate(100px, 173.20508px) rotate(1.0472rad);
+          transform: translate(100px, 173.20508px) rotate(1.0472rad);
+}
+
+.mandalas .mandala-cont:nth-child(2) {
+  -webkit-transform: translate(-100.0px, 173.20508px) rotate(2.0944rad);
+          transform: translate(-100.0px, 173.20508px) rotate(2.0944rad);
+}
+
+.mandalas .mandala-cont:nth-child(3) {
+  -webkit-transform: translate(-199.99998px, 0px) rotate(3.14159rad);
+          transform: translate(-199.99998px, 0px) rotate(3.14159rad);
+}
+
+.mandalas .mandala-cont:nth-child(4) {
+  -webkit-transform: translate(-99.99774px, -173.20508px) rotate(4.18879rad);
+          transform: translate(-99.99774px, -173.20508px) rotate(4.18879rad);
+}
+
+.mandalas .mandala-cont:nth-child(5) {
+  -webkit-transform: translate(100px, -173.20483px) rotate(5.23599rad);
+          transform: translate(100px, -173.20483px) rotate(5.23599rad);
+}
+
+.mandalas .mandala-cont:nth-child(6) {
+  -webkit-transform: translate(200px, 0px) rotate(6.28319rad);
+          transform: translate(200px, 0px) rotate(6.28319rad);
+}
+
 body .intro {
   background-color: #201f20;
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1457,12 +1486,35 @@ body .intro {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  height: 100vh;
   width: 100vw;
 }
 
+body .intro .mandalas {
+  -webkit-animation: RevSpin 120s 0 linear;
+          animation: RevSpin 120s 0 linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  display: -ms-grid;
+  display: grid;
+}
+
+body .intro .mandalas .mandala-cont {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+}
+
 .mandala {
-  -webkit-transform: scale(0.5);
-          transform: scale(0.5);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   -webkit-animation: Spin 60s 0 linear;
           animation: Spin 60s 0 linear;
   -webkit-animation-iteration-count: infinite;
@@ -1521,12 +1573,16 @@ body .intro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   background-color: #fffafc;
   border-radius: 50%;
 }
@@ -1543,15 +1599,29 @@ body .intro {
 
 @-webkit-keyframes Spin {
   to {
-    -webkit-transform: scale(0.5) rotate(360deg);
-            transform: scale(0.5) rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
 @keyframes Spin {
   to {
-    -webkit-transform: scale(0.5) rotate(360deg);
-            transform: scale(0.5) rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes RevSpin {
+  to {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+@keyframes RevSpin {
+  to {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
   }
 }
 /*# sourceMappingURL=style.css.map */
