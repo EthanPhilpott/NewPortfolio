@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button,
+input {
+    outline: none;
+}
+
+@mixin FlexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin GridOver() {
+    display: grid;
+    * {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+}
+
+@mixin WidthHeight($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@keyframes FadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes FadeOut {
+    to {
+        opacity: 0;
+    }
+}
