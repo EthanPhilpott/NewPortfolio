@@ -45,13 +45,15 @@ head
     meta(property='og:image' content='')
     meta(property='og:title' content='')
     meta(property='og:description' content='')
-    title Pug Boiler Plate
-    link(rel='stylesheet' href='../styles/css/min/style.min.css')
+    title Hendala
+    link(rel='stylesheet' href='styles/css/min/style.min.css')
     link(rel='shortcut icon' href='' type='image/x-icon')
     link(rel="preconnect" href="https://fonts.gstatic.com")
-    link(href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet")
-body 
-    .intro 
+    link(href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet")
+    //- link(rel="preconnect" href="https://fonts.gstatic.com")
+    //- link(href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet")
+body
+    .intro.black-bg 
         .mandala
             +ForDash(3, 24, 10, 5)
             +ForPedal(7, 24, 20, 20)
@@ -96,7 +98,21 @@ body
             +Ring(25, true)
             +Ring(10, false)
     .main-content 
+        .greeting.black-bg
+            h3 Ethan Philpott 
+                p A young programmer infatuated with code
+        .photo-and-details.white-bg
+            .self-photo
+                .mandala 
+                    +Ring(140, true)
+                    +ForPedal(8, 18, 10, 10)
+                    +ForPedal(9, 18, 20, 20)
+                    +ForDash(4, 18, 10, 5)
+                .photo
+                    img(src="assets/images/monke.jpg", alt="me")
+
+
 
 
     script(src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous")
-    script(src='../scripts/main.js')
+    script(src='scripts/main.js')
