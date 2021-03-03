@@ -1,7 +1,12 @@
 @import "partials/_common.scss";
 @import "partials/_trig.sass";
 
-// Variables
+// ██╗░░░██╗░█████╗░██████╗░██╗░█████╗░██████╗░██╗░░░░░███████╗░██████╗
+// ██║░░░██║██╔══██╗██╔══██╗██║██╔══██╗██╔══██╗██║░░░░░██╔════╝██╔════╝
+// ╚██╗░██╔╝███████║██████╔╝██║███████║██████╦╝██║░░░░░█████╗░░╚█████╗░
+// ░╚████╔╝░██╔══██║██╔══██╗██║██╔══██║██╔══██╗██║░░░░░██╔══╝░░░╚═══██╗
+// ░░╚██╔╝░░██║░░██║██║░░██║██║██║░░██║██████╦╝███████╗███████╗██████╔╝
+// ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝╚═╝░░╚═╝╚═════╝░╚══════╝╚══════╝╚═════╝░
 
 $title-font: "Raleway", sans-serif;
 
@@ -15,7 +20,9 @@ $palette: (
     "navy": #073b4c,
 );
 
-$amts: (
+$mandala-sizes: (1, 3);
+
+$rad: (
     pedals1: (
         parent: ".pedals1",
         target: ".pedal-shell",
@@ -102,6 +109,15 @@ $amts: (
     ),
 );
 
+$str: (1);
+
+// ███████╗██╗░░░██╗███╗░░██╗░█████╗░████████╗██╗░█████╗░███╗░░██╗░██████╗
+// ██╔════╝██║░░░██║████╗░██║██╔══██╗╚══██╔══╝██║██╔══██╗████╗░██║██╔════╝
+// █████╗░░██║░░░██║██╔██╗██║██║░░╚═╝░░░██║░░░██║██║░░██║██╔██╗██║╚█████╗░
+// ██╔══╝░░██║░░░██║██║╚████║██║░░██╗░░░██║░░░██║██║░░██║██║╚████║░╚═══██╗
+// ██║░░░░░╚██████╔╝██║░╚███║╚█████╔╝░░░██║░░░██║╚█████╔╝██║░╚███║██████╔╝
+// ╚═╝░░░░░░╚═════╝░╚═╝░░╚══╝░╚════╝░░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚══╝╚═════╝░
+
 @function FromTo($from, $to) {
     $onoff: true;
     $list: ();
@@ -118,6 +134,13 @@ $amts: (
     }
     @return $list;
 }
+
+// ███╗░░░███╗░█████╗░██╗███╗░░██╗    ███╗░░░███╗██╗██╗░░██╗██╗███╗░░██╗░██████╗
+// ████╗░████║██╔══██╗██║████╗░██║    ████╗░████║██║╚██╗██╔╝██║████╗░██║██╔════╝
+// ██╔████╔██║███████║██║██╔██╗██║    ██╔████╔██║██║░╚███╔╝░██║██╔██╗██║╚█████╗░
+// ██║╚██╔╝██║██╔══██║██║██║╚████║    ██║╚██╔╝██║██║░██╔██╗░██║██║╚████║░╚═══██╗
+// ██║░╚═╝░██║██║░░██║██║██║░╚███║    ██║░╚═╝░██║██║██╔╝╚██╗██║██║░╚███║██████╔╝
+// ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝╚═╝░░╚══╝    ╚═╝░░░░░╚═╝╚═╝╚═╝░░╚═╝╚═╝╚═╝░░╚══╝╚═════╝░
 
 @mixin CircleDivs($parent, $target, $amt, $turn, $offset, $dist) {
     @for $i from 1 through $amt {
@@ -156,6 +179,30 @@ $amts: (
     }
 }
 
+@mixin SpinKeyframe($scale, $direc) {
+    $angle: 0;
+    @if $direc == "clockwise" {
+        $angle: 360deg;
+    } @else {
+        $angle: -360deg;
+    }
+    @keyframes Spin-#{$direc}-#{$scale} {
+        to {
+            transform: scale($scale) rotate($angle);
+        }
+    }
+}
+
+// ░██████╗████████╗██╗░░░██╗██╗░░░░░███████╗░██████╗
+// ██╔════╝╚══██╔══╝╚██╗░██╔╝██║░░░░░██╔════╝██╔════╝
+// ╚█████╗░░░░██║░░░░╚████╔╝░██║░░░░░█████╗░░╚█████╗░
+// ░╚═══██╗░░░██║░░░░░╚██╔╝░░██║░░░░░██╔══╝░░░╚═══██╗
+// ██████╔╝░░░██║░░░░░░██║░░░███████╗███████╗██████╔╝
+// ╚═════╝░░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚══════╝╚═════╝░
+
+// Setup
+
+// Adds the basic classes needed for the mandala sizes to work
 @include AddClasses(
     (
         width: (
@@ -168,31 +215,82 @@ $amts: (
         ),
         radius: (
             "custom",
-            $amts,
+            $rad,
+        ),
+        straight: (
+            "custom",
+            $str,
         ),
     )
 );
 
-// Styles
+// Will make a keyframe for all sizes and directions for a mandala to spin
+@each $val in $mandala-sizes {
+    @include SpinKeyframe($val, "clockwise");
+    @include SpinKeyframe($val, "counterclockwise");
+}
+
+// Actual styles
 
 body {
+    background-color: map-get($palette, "bg");
     .intro {
+        overflow: hidden;
         background-color: map-get($palette, "bg");
         @include GridOver;
         height: 100vh;
         width: 100vw;
+        animation: fade-out 0.5s 5s;
+        animation-fill-mode: both;
     }
-    .mandala:nth-of-type(1) {
-        align-self: flex-end;
-        justify-self: flex-end;
+    .mandala {
+        transform: scale(3);
+        animation: Spin-clockwise-3 60s 0 linear;
+        animation-iteration-count: infinite;
+        &:nth-of-type(1) {
+            align-self: flex-end;
+            justify-self: flex-end;
+        }
+    }
+    .intro-text {
+        width: 60vw;
+        height: 13em;
+        overflow: hidden;
+        align-self: center;
+        justify-self: center;
+        font-family: $title-font;
+        color: map-get($palette, "line");
+        h1 {
+            @include FlexCenter(row);
+            gap: 0.5vw;
+            font-size: 10em;
+            line-height: 1em;
+            span {
+                transform: translate(0, 5em);
+                @for $i from 0 through 7 {
+                    &:nth-of-type(#{$i}) {
+                        animation: slide-up 1s #{$i / 7}s ease;
+                        animation-fill-mode: both;
+                    }
+                }
+            }
+        }
+        h2 {
+            opacity: 0;
+            text-align: center;
+            font-size: 1.5em;
+            animation: fade-in 1s 2s ease;
+            animation-fill-mode: both;
+            span {
+                color: map-get($palette, "green");
+            }
+        }
     }
 }
 
 .mandala {
     width: fit-content;
     height: fit-content;
-    animation: Spin 60s 0 linear;
-    animation-iteration-count: infinite;
     @include GridOver;
     * {
         position: relative;
@@ -231,14 +329,8 @@ body {
     }
 }
 
-@keyframes Spin {
+@keyframes slide-up {
     to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes RevSpin {
-    to {
-        transform: rotate(-360deg);
+        transform: translate(0, 0);
     }
 }

@@ -51,7 +51,7 @@ head
     link(rel="preconnect" href="https://fonts.gstatic.com")
     link(href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet")
 body 
-    .intro
+    .intro 
         .mandala
             +ForDash(3, 24, 10, 5)
             +ForPedal(7, 24, 20, 20)
@@ -72,8 +72,11 @@ body
             +Ring(10, false)
         .intro-text
             - let introText = "Hendala"
-            - for (let letter of introText)
-                h1= letter
+            h1
+                - for (let letter of introText)
+                    span= letter
+            h2 A Portfolio Website Made by 
+                span Ethan Philpott
         .mandala    
             +ForDash(3, 24, 10, 5)
             +ForPedal(7, 24, 20, 20)

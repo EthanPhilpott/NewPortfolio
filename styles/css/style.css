@@ -12,25 +12,25 @@ input {
   outline: none;
 }
 
-@-webkit-keyframes FadeIn {
+@-webkit-keyframes fade-in {
   to {
     opacity: 1;
   }
 }
 
-@keyframes FadeIn {
+@keyframes fade-in {
   to {
     opacity: 1;
   }
 }
 
-@-webkit-keyframes FadeOut {
+@-webkit-keyframes fade-out {
   to {
     opacity: 0;
   }
 }
 
-@keyframes FadeOut {
+@keyframes fade-out {
   to {
     opacity: 0;
   }
@@ -1444,12 +1444,77 @@ input {
           transform: translate(65px, 0px) rotate(6.28319rad);
 }
 
+@-webkit-keyframes Spin-clockwise-1 {
+  to {
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes Spin-clockwise-1 {
+  to {
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes Spin-counterclockwise-1 {
+  to {
+    -webkit-transform: scale(1) rotate(-360deg);
+            transform: scale(1) rotate(-360deg);
+  }
+}
+
+@keyframes Spin-counterclockwise-1 {
+  to {
+    -webkit-transform: scale(1) rotate(-360deg);
+            transform: scale(1) rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes Spin-clockwise-3 {
+  to {
+    -webkit-transform: scale(3) rotate(360deg);
+            transform: scale(3) rotate(360deg);
+  }
+}
+
+@keyframes Spin-clockwise-3 {
+  to {
+    -webkit-transform: scale(3) rotate(360deg);
+            transform: scale(3) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes Spin-counterclockwise-3 {
+  to {
+    -webkit-transform: scale(3) rotate(-360deg);
+            transform: scale(3) rotate(-360deg);
+  }
+}
+
+@keyframes Spin-counterclockwise-3 {
+  to {
+    -webkit-transform: scale(3) rotate(-360deg);
+            transform: scale(3) rotate(-360deg);
+  }
+}
+
+body {
+  background-color: #201f20;
+}
+
 body .intro {
+  overflow: hidden;
   background-color: #201f20;
   display: -ms-grid;
   display: grid;
   height: 100vh;
   width: 100vw;
+  -webkit-animation: fade-out 0.5s 5s;
+          animation: fade-out 0.5s 5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 body .intro * {
@@ -1461,10 +1526,126 @@ body .intro * {
   grid-row: 1 / 2;
 }
 
+body .mandala {
+  -webkit-transform: scale(3);
+          transform: scale(3);
+  -webkit-animation: Spin-clockwise-3 60s 0 linear;
+          animation: Spin-clockwise-3 60s 0 linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
 body .mandala:nth-of-type(1) {
   -ms-flex-item-align: end;
       align-self: flex-end;
   justify-self: flex-end;
+}
+
+body .intro-text {
+  width: 60vw;
+  height: 13em;
+  overflow: hidden;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  font-family: "Raleway", sans-serif;
+  color: #fffafc;
+}
+
+body .intro-text h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 0.5vw;
+  font-size: 10em;
+  line-height: 1em;
+}
+
+body .intro-text h1 span {
+  -webkit-transform: translate(0, 5em);
+          transform: translate(0, 5em);
+}
+
+body .intro-text h1 span:nth-of-type(0) {
+  -webkit-animation: slide-up 1s 0s ease;
+          animation: slide-up 1s 0s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+body .intro-text h1 span:nth-of-type(1) {
+  -webkit-animation: slide-up 1s 0.14286s ease;
+          animation: slide-up 1s 0.14286s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+body .intro-text h1 span:nth-of-type(2) {
+  -webkit-animation: slide-up 1s 0.28571s ease;
+          animation: slide-up 1s 0.28571s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+body .intro-text h1 span:nth-of-type(3) {
+  -webkit-animation: slide-up 1s 0.42857s ease;
+          animation: slide-up 1s 0.42857s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+body .intro-text h1 span:nth-of-type(4) {
+  -webkit-animation: slide-up 1s 0.57143s ease;
+          animation: slide-up 1s 0.57143s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+body .intro-text h1 span:nth-of-type(5) {
+  -webkit-animation: slide-up 1s 0.71429s ease;
+          animation: slide-up 1s 0.71429s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+body .intro-text h1 span:nth-of-type(6) {
+  -webkit-animation: slide-up 1s 0.85714s ease;
+          animation: slide-up 1s 0.85714s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+body .intro-text h1 span:nth-of-type(7) {
+  -webkit-animation: slide-up 1s 1s ease;
+          animation: slide-up 1s 1s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+body .intro-text h2 {
+  opacity: 0;
+  text-align: center;
+  font-size: 1.5em;
+  -webkit-animation: fade-in 1s 2s ease;
+          animation: fade-in 1s 2s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+body .intro-text h2 span {
+  color: #06d6a0;
 }
 
 .mandala {
@@ -1474,10 +1655,6 @@ body .mandala:nth-of-type(1) {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  -webkit-animation: Spin 60s 0 linear;
-          animation: Spin 60s 0 linear;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
   display: -ms-grid;
   display: grid;
 }
@@ -1559,31 +1736,17 @@ body .mandala:nth-of-type(1) {
   background-color: #fffafc;
 }
 
-@-webkit-keyframes Spin {
+@-webkit-keyframes slide-up {
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
 }
 
-@keyframes Spin {
+@keyframes slide-up {
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes RevSpin {
-  to {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
-  }
-}
-
-@keyframes RevSpin {
-  to {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
 }
 /*# sourceMappingURL=style.css.map */
