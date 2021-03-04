@@ -1752,10 +1752,26 @@ input {
   background-color: #ebebeb;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  width: 0;
+}
+
 body {
   display: -ms-grid;
   display: grid;
   overflow-x: hidden;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 body * {
@@ -1765,6 +1781,10 @@ body * {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1 / 2;
+}
+
+body ::-webkit-scrollbar {
+  display: none;
 }
 
 body .intro {
@@ -1914,7 +1934,9 @@ body .intro .intro-text h2 span {
   color: #06d6a0;
 }
 
-body .main-content {
+body .main-content .title-card {
+  overflow: hidden;
+  height: 100vh;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   display: -webkit-box;
@@ -1924,10 +1946,10 @@ body .main-content {
   z-index: 0;
 }
 
-body .main-content .greeting {
+body .main-content .title-card .greeting {
   width: 100%;
-  -webkit-animation: balance-black 1s 6s ease-out;
-          animation: balance-black 1s 6s ease-out;
+  -webkit-animation: balance-black 1s 6s cubic-bezier(0.17, 0.67, 0.21, 0.95);
+          animation: balance-black 1s 6s cubic-bezier(0.17, 0.67, 0.21, 0.95);
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   position: relative;
@@ -1936,14 +1958,118 @@ body .main-content .greeting {
           box-shadow: 5px 0 20px #1e2022;
 }
 
-body .main-content .photo-and-details {
+body .main-content .title-card .photo-and-details {
   position: relative;
   z-index: 0;
   width: 0;
-  -webkit-animation: balance-white 1s 6s ease-out;
-          animation: balance-white 1s 6s ease-out;
+  opacity: 0;
+  -webkit-animation: balance-white 1s 6s cubic-bezier(0.17, 0.67, 0.21, 0.95), fade-in 1s 7s;
+          animation: balance-white 1s 6s cubic-bezier(0.17, 0.67, 0.21, 0.95), fade-in 1s 7s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 50px 20px 20px 20px;
+}
+
+body .main-content .title-card .photo-and-details .self-photo {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .main-content .title-card .photo-and-details .self-photo * {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+}
+
+body .main-content .title-card .photo-and-details .self-photo .mandala {
+  -webkit-transform: scale(3);
+          transform: scale(3);
+  -webkit-animation: Spin-clockwise-3 60s 0 linear;
+          animation: Spin-clockwise-3 60s 0 linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+body .main-content .title-card .photo-and-details .self-photo .mandala .pedal-shell {
+  background-color: #201f20;
+}
+
+body .main-content .title-card .photo-and-details .self-photo .mandala .pedal-shell .pedal-whitespace {
+  background-color: #ebebeb;
+  border-radius: 0 50% 50% 0;
+}
+
+body .main-content .title-card .photo-and-details .self-photo .mandala .ring-body {
+  background-color: #201f20;
+}
+
+body .main-content .title-card .photo-and-details .self-photo .mandala .ring-body .ring-whitespace {
+  background-color: #ebebeb;
+}
+
+body .main-content .title-card .photo-and-details .self-photo .mandala .dash-body {
+  background-color: #201f20;
+}
+
+body .main-content .title-card .photo-and-details .self-photo .photo {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: solid 7.5px #201f20;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+body .main-content .title-card .photo-and-details .self-photo .photo img {
+  width: 400px;
+}
+
+body .main-content .title-card .photo-and-details .socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  gap: 10px;
+}
+
+body .main-content .title-card .photo-and-details .socials .img-cont {
+  width: 60px;
+  height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1959,71 +2085,16 @@ body .main-content .photo-and-details {
           flex-direction: row;
 }
 
-body .main-content .photo-and-details .self-photo {
-  display: -ms-grid;
-  display: grid;
-  justify-items: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  opacity: 0;
-  -webkit-animation: fade-in 0.5s 7s;
-          animation: fade-in 0.5s 7s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+body .main-content .title-card .photo-and-details .socials .img-cont img {
+  width: 50px;
+  height: 50px;
+  -webkit-transition: 0.5s width, 0.5s height;
+  transition: 0.5s width, 0.5s height;
 }
 
-body .main-content .photo-and-details .self-photo * {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1 / 2;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1 / 2;
-}
-
-body .main-content .photo-and-details .self-photo .mandala {
-  -webkit-transform: scale(3);
-          transform: scale(3);
-  -webkit-animation: Spin-clockwise-3 60s 0 linear;
-          animation: Spin-clockwise-3 60s 0 linear;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-}
-
-body .main-content .photo-and-details .self-photo .mandala .pedal-shell {
-  background-color: #201f20;
-}
-
-body .main-content .photo-and-details .self-photo .mandala .pedal-shell .pedal-whitespace {
-  background-color: #ebebeb;
-  border-radius: 0 50% 50% 0;
-}
-
-body .main-content .photo-and-details .self-photo .mandala .ring-body {
-  background-color: #201f20;
-}
-
-body .main-content .photo-and-details .self-photo .mandala .ring-body .ring-whitespace {
-  background-color: #ebebeb;
-}
-
-body .main-content .photo-and-details .self-photo .mandala .dash-body {
-  background-color: #201f20;
-}
-
-body .main-content .photo-and-details .self-photo .photo {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  border: solid 7.5px #201f20;
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
-}
-
-body .main-content .photo-and-details .self-photo .photo img {
-  width: 400px;
+body .main-content .title-card .photo-and-details .socials .img-cont img:hover {
+  width: 60px;
+  height: 60px;
 }
 
 .mandala {
@@ -2130,25 +2201,25 @@ body .main-content .photo-and-details .self-photo .photo img {
 
 @-webkit-keyframes balance-black {
   to {
-    width: 60%;
+    width: calc(100vw - 500px);
   }
 }
 
 @keyframes balance-black {
   to {
-    width: 60%;
+    width: calc(100vw - 500px);
   }
 }
 
 @-webkit-keyframes balance-white {
   to {
-    width: 40%;
+    width: 500px;
   }
 }
 
 @keyframes balance-white {
   to {
-    width: 40%;
+    width: 500px;
   }
 }
 /*# sourceMappingURL=style.css.map */

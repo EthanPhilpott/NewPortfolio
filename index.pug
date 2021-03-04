@@ -98,18 +98,32 @@ body
             +Ring(25, true)
             +Ring(10, false)
     .main-content 
-        .greeting.black-bg
-            h3 Ethan Philpott 
-                p A young programmer infatuated with code
-        .photo-and-details.white-bg
-            .self-photo
-                .mandala 
-                    +Ring(140, true)
-                    +ForPedal(8, 18, 10, 10)
-                    +ForPedal(9, 18, 20, 20)
-                    +ForDash(4, 18, 10, 5)
-                .photo
-                    img(src="assets/images/monke.jpg", alt="me")
+        .title-card
+            .greeting.black-bg
+                h3 Ethan Philpott 
+                    p A young programmer infatuated with code
+            .photo-and-details.white-bg
+                .self-photo
+                    .mandala 
+                        +ForPedal(8, 18, 10, 10)
+                        +ForPedal(9, 18, 20, 20)
+                        +ForDash(4, 18, 10, 5)
+                    .photo
+                        img(src="assets/images/monke.jpg", alt="me")
+                .socials
+                    .img-cont 
+                        img(src="assets/svgs/socials/github.svg", alt="github")
+                    .img-cont 
+                        img(src="assets/svgs/socials/linkedin.svg", alt="linkedin")
+        footer 
+            div Icons made by 
+                a(href="https://www.freepik.com" title="Freepik") Freepik
+                span from 
+                a(href="https://www.flaticon.com/" title="Flaticon") www.flaticon.com
+            div Icons made by 
+                a(href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect") Pixel perfect 
+                span from 
+                a(href="https://www.flaticon.com/" title="Flaticon") www.flaticon.com
 
 
 
