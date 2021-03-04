@@ -18,7 +18,7 @@ $palette: (
     "shadow": #1e2022,
     "pink": #ef476f,
     "yellow": #ffd166,
-    "green": #06d6a0,
+    "hl": #06d6a0,
     "blue": #118ab2,
     "navy": #073b4c,
 );
@@ -78,15 +78,15 @@ $rad: (
     pedals8: (
         parent: ".pedals8",
         target: ".pedal-shell",
-        number: 18,
+        number: 24,
         offset: 0,
-        distance: 60,
+        distance: 57.5,
     ),
     pedals9: (
         parent: ".pedals9",
         target: ".pedal-shell",
-        number: 18,
-        offset: $PI / 18,
+        number: 12,
+        offset: $PI / 12,
         distance: 60,
     ),
     dashes1: (
@@ -113,9 +113,9 @@ $rad: (
     dashes4: (
         parent: ".dashes4",
         target: ".dash-body",
-        number: 18,
-        offset: $PI / 18,
-        distance: 57,
+        number: 24,
+        offset: $PI / 24,
+        distance: 57.5,
     ),
     dots1: (
         parent: ".dots1",
@@ -123,6 +123,27 @@ $rad: (
         number: 12,
         offset: 0,
         distance: 65,
+    ),
+    dots2: (
+        parent: ".dots2",
+        target: ".ring-body",
+        number: 12,
+        offset: $PI / 12,
+        distance: 65,
+    ),
+    dots3: (
+        parent: ".dots3",
+        target: ".dot-cont",
+        number: 12,
+        offset: 0,
+        distance: 65,
+    ),
+    dots4: (
+        parent: ".dots4",
+        target: ".ring-body",
+        number: 12,
+        offset: -$PI / 3,
+        distance: 7.5,
     ),
 );
 
@@ -277,7 +298,7 @@ body {
     }
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
-    .intro {
+    header {
         overflow: hidden;
         @include GridOver;
         height: 100vh;
@@ -327,20 +348,20 @@ body {
                 animation: fade-in 1s 2s ease;
                 animation-fill-mode: both;
                 span {
-                    color: map-get($palette, "green");
+                    color: map-get($palette, "hl");
                 }
             }
         }
     }
-    .main-content {
-        .title-card {
+    main {
+        article.title-card {
             overflow: hidden;
             height: 100vh;
             animation-fill-mode: both;
             display: flex;
             position: relative;
             z-index: 0;
-            .greeting {
+            section.content {
                 width: 100%;
                 animation: balance-black 1s 6s
                     cubic-bezier(0.17, 0.67, 0.21, 0.95);
@@ -348,8 +369,54 @@ body {
                 position: relative;
                 z-index: 1;
                 box-shadow: 5px 0 20px map-get($palette, "shadow");
+                .slide {
+                    opacity: 0;
+                    color: map-get($palette, "line");
+                    padding: 7.5rem 5rem;
+                    h5 {
+                        color: map-get($palette, "hl");
+                        transform: translate(-0.25em, 0);
+                        animation: fade-in 0.75s 7s, slide-in 0.75s 7s;
+                        font-family: $title-font;
+                        font-size: 5em;
+                        line-height: 0.9em;
+                        animation-fill-mode: both;
+                        letter-spacing: 0.00125em;
+                        display: flex;
+                        flex-direction: column;
+                        &::after {
+                            content: "";
+                            width: 3em;
+                            height: 0.0625em;
+                            border-radius: 0.03125em;
+                            background-color: map-get($palette, "hl");
+                        }
+                    }
+                    p {
+                        text-indent: 2em;
+                        text-align: justify;
+                        margin-top: 0.25em;
+                        padding: 0 5em 0 2em;
+                        animation: fade-in 0.75s 7.5s;
+                        font-size: 1.75em;
+                        font-family: $subtitle-font;
+                        animation-fill-mode: both;
+                        letter-spacing: 0.0125em;
+                        line-height: 1.35em;
+                        a {
+                            color: map-get($palette, "hl");
+                        }
+                    }
+                }
+                .about {
+                    opacity: 1;
+                    h5,
+                    p {
+                        opacity: 0;
+                    }
+                }
             }
-            .photo-and-details {
+            section.photo-and-details {
                 position: relative;
                 z-index: 0;
                 width: 0;
@@ -360,46 +427,65 @@ body {
                 animation-fill-mode: both;
                 @include FlexCenter(column);
                 justify-content: space-between;
-                padding: 50px 20px 20px 20px;
-                .self-photo {
-                    @include GridOver;
-                    justify-items: center;
-                    align-items: center;
-                    .mandala {
-                        transform: scale(3);
-                        animation: Spin-clockwise-3 60s 0 linear;
-                        animation-iteration-count: infinite;
-                        .pedal-shell {
-                            background-color: map-get($palette, "bg");
-                            .pedal-whitespace {
-                                background-color: map-get($palette, "line");
-                                border-radius: 0 50% 50% 0;
+                .details {
+                    @include FlexCenter(column);
+                    gap: 75px;
+                    .self-photo {
+                        margin-top: 3rem;
+                        @include GridOver;
+                        justify-items: center;
+                        align-items: center;
+                        .mandala {
+                            transform: scale(3);
+                            animation: Spin-clockwise-3 60s 0 linear;
+                            animation-iteration-count: infinite;
+                            .pedal-shell {
+                                background-color: map-get($palette, "bg");
+                                .pedal-whitespace {
+                                    background-color: map-get($palette, "line");
+                                    border-radius: 0 50% 50% 0;
+                                }
+                            }
+                            .ring-body {
+                                background-color: map-get($palette, "bg");
+                                .ring-whitespace {
+                                    background-color: map-get($palette, "line");
+                                }
+                            }
+                            .dash-body {
+                                background-color: map-get($palette, "bg");
                             }
                         }
-                        .ring-body {
-                            background-color: map-get($palette, "bg");
-                            .ring-whitespace {
-                                background-color: map-get($palette, "line");
+                        .photo {
+                            width: 350px;
+                            height: 350px;
+                            border-radius: 50%;
+                            border: solid 7.5px map-get($palette, "bg");
+                            overflow: hidden;
+                            position: relative;
+                            z-index: 2;
+                            img {
+                                width: 400px;
                             }
-                        }
-                        .dash-body {
-                            background-color: map-get($palette, "bg");
                         }
                     }
-                    .photo {
-                        width: 350px;
-                        height: 350px;
-                        border-radius: 50%;
-                        border: solid 7.5px map-get($palette, "bg");
-                        overflow: hidden;
-                        position: relative;
-                        z-index: 2;
-                        img {
-                            width: 400px;
+                    .name {
+                        text-align: center;
+                        h3 {
+                            font-size: 4em;
+                            letter-spacing: 0.0625em;
+                            color: map-get($palette, "hl");
+                            font-family: $title-font;
+                        }
+                        h4 {
+                            margin-top: 10px;
+                            font-size: 1.25em;
+                            font-family: $subtitle-font;
                         }
                     }
                 }
                 .socials {
+                    margin: 1.5em;
                     @include FlexCenter(row);
                     align-self: flex-end;
                     gap: 10px;
@@ -465,6 +551,12 @@ body {
 }
 
 @keyframes slide-up {
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes slide-in {
     to {
         transform: translate(0, 0);
     }
