@@ -145,6 +145,13 @@ $rad: (
         offset: -$PI / 3,
         distance: 7.5,
     ),
+    nav: (
+        parent: ".label-cont",
+        target: "label",
+        number: 24,
+        offset: $PI / 2 * 3 - $PI / 24 * 1.5,
+        distance: 312.5,
+    ),
 );
 
 // ███████╗██╗░░░██╗███╗░░██╗░█████╗░████████╗██╗░█████╗░███╗░░██╗░██████╗
@@ -369,50 +376,109 @@ body {
                 position: relative;
                 z-index: 1;
                 box-shadow: 5px 0 20px map-get($palette, "shadow");
-                .slide {
-                    opacity: 0;
-                    color: map-get($palette, "line");
-                    padding: 7.5rem 5rem;
-                    h5 {
-                        color: map-get($palette, "hl");
-                        transform: translate(-0.25em, 0);
-                        animation: fade-in 0.75s 7s, slide-in 0.75s 7s;
-                        font-family: $title-font;
-                        font-size: 5em;
-                        line-height: 0.9em;
-                        animation-fill-mode: both;
-                        letter-spacing: 0.00125em;
-                        display: flex;
-                        flex-direction: column;
+                @include GridOver;
+                .label-cont {
+                    width: 0;
+                    height: 0;
+                    align-self: flex-end;
+                    label {
+                        color: map-get($palette, "line");
+                        font-family: $subtitle-font;
+                        font-size: 2em;
+                        position: absolute;
+                        top: 100vh;
+                        left: 0;
+                        transform-origin: 0 0;
+                    }
+                }
+                input[type="radio"] {
+                    position: absolute;
+                    top: 100vh;
+                    left: 0;
+                    #slide1-btn {
                         &::after {
-                            content: "";
-                            width: 3em;
-                            height: 0.0625em;
-                            border-radius: 0.03125em;
-                            background-color: map-get($palette, "hl");
+                            content: "About";
                         }
                     }
-                    p {
-                        text-indent: 2em;
-                        text-align: justify;
-                        margin-top: 0.25em;
-                        padding: 0 5em 0 2em;
-                        animation: fade-in 0.75s 7.5s;
-                        font-size: 1.75em;
-                        font-family: $subtitle-font;
-                        animation-fill-mode: both;
-                        letter-spacing: 0.0125em;
-                        line-height: 1.35em;
-                        a {
-                            color: map-get($palette, "hl");
+                    #slide1-btn {
+                        &::after {
+                            content: "Skills";
+                        }
+                    }
+                    #slide1-btn {
+                        &::after {
+                            content: "Projects";
+                        }
+                    }
+                    #slide1-btn {
+                        &::after {
+                            content: "Contact";
+                        }
+                    }
+                    #slide1-btn {
+                        &::after {
+                            content: "Resume";
+                        }
+                    }
+                    #slide1-btn {
+                        &::after {
+                            content: "Credits";
                         }
                     }
                 }
-                .about {
-                    opacity: 1;
-                    h5,
-                    p {
+                .slides {
+                    @include GridOver;
+                    height: 100vh;
+                    .mandala {
+                        transform: scale(3)
+                            translate(calc(-50% / 3), calc(50% / 3));
+                        align-self: flex-end;
+                    }
+                    .slide {
                         opacity: 0;
+                        color: map-get($palette, "line");
+                        padding: 5rem;
+                        h5 {
+                            color: map-get($palette, "hl");
+                            transform: translate(-0.25em, 0);
+                            animation: fade-in 0.75s 7s, slide-in 0.75s 7s;
+                            font-family: $title-font;
+                            font-size: 5em;
+                            line-height: 0.9em;
+                            animation-fill-mode: both;
+                            letter-spacing: 0.00125em;
+                            display: flex;
+                            flex-direction: column;
+                            &::after {
+                                content: "";
+                                width: 3em;
+                                height: 0.0625em;
+                                border-radius: 0.03125em;
+                                background-color: map-get($palette, "hl");
+                            }
+                        }
+                        p {
+                            text-indent: 2em;
+                            text-align: justify;
+                            margin-top: 0.25em;
+                            padding: 0 2em;
+                            animation: fade-in 0.75s 7.5s;
+                            font-size: 2em;
+                            font-family: $subtitle-font;
+                            animation-fill-mode: both;
+                            letter-spacing: 0.0125em;
+                            line-height: 1.35em;
+                            a {
+                                color: map-get($palette, "hl");
+                            }
+                        }
+                    }
+                    .about {
+                        opacity: 1;
+                        h5,
+                        p {
+                            opacity: 0;
+                        }
                     }
                 }
             }
@@ -429,9 +495,9 @@ body {
                 justify-content: space-between;
                 .details {
                     @include FlexCenter(column);
-                    gap: 75px;
+                    gap: 5em;
                     .self-photo {
-                        margin-top: 3rem;
+                        margin-top: 6rem;
                         @include GridOver;
                         justify-items: center;
                         align-items: center;

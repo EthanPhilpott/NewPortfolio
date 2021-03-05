@@ -11,6 +11,10 @@ input {
     outline: none;
 }
 
+input[type="radio"] {
+    appearance: none;
+}
+
 a {
     color: inherit;
     text-decoration: none;

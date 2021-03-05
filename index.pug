@@ -94,30 +94,63 @@ body
     main 
         article.title-card
             section.content.black-bg
-                .slide.about 
-                    h5 About 
-                    p Hello! My name is Ethan Philpott and I am a junior programmer based in Arizona. When I am not programming personal projects in my free time, I enjoy playing video games and doing minimal amount of pixel art. As you may have noticed, the majority of graphics on this website are made entirely by styling divs. While this is not computationally sound and it would have been much faster and easier to use SVGs and Javascript, I figured I'd take up the challenge of making this website using as little Javascript as possible. Using the power of Pug and Sass, I was able to make the montrosity you are viewing now. If you would like to see the same website using SVGs and Javascript follow
-                        | 
-                        a(href="#") This Link
-                .slide.skills 
-                    h5 Skills 
-                .slide.projects 
-                    h5 Projects 
-                .slide.contact 
-                    h5 Contant
-                .slide.resume
-                    h5 Resume 
-                .slide.credits
-                    h5 Credits
-                    footer 
-                        div Icons made by 
-                            a(href="https://www.freepik.com" title="Freepik") Freepik
-                            span from 
-                            a(href="https://www.flaticon.com/" title="Flaticon") www.flaticon.com
-                        div Icons made by 
-                            a(href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect") Pixel perfect 
-                            span from 
-                            a(href="https://www.flaticon.com/" title="Flaticon") www.flaticon.com
+                //- This is the slides nav, I can't put it in a div becuase of the way I am doing selectors
+                div.label-cont 
+                    label(for="#slide1-btn") About 
+                    label(for="#slide2-btn") Skills 
+                    label(for="#slide3-btn") Projects  
+                    label(for="#slide4-btn") Contact 
+                    label(for="#slide5-btn") Resume 
+                    label(for="#slide6-btn") Credits 
+                input#slide1-btn(type="radio", name="slide") 
+                input#slide2-btn(type="radio", name="slide") 
+                input#slide3-btn(type="radio", name="slide") 
+                input#slide4-btn(type="radio", name="slide") 
+                input#slide5-btn(type="radio", name="slide") 
+                input#slide6-btn(type="radio", name="slide") 
+                .slides 
+                    .mandala
+                        +ForDash(3, 24, 10, 5)
+                        +ForPedal(7, 24, 20, 20)
+                        +Ring(165, true)
+                        +Ring(155, true)
+                        +ForPedal(6, 12, 25, 25)
+                        +ForPedal(5, 12, 35, 25)
+                        +ForDot(1, 12, 5)
+                        +ForDash(2, 12, 10, 5)
+                        +ForPedal(4, 12, 35, 25)
+                        +ForDash(1, 12, 10, 5)
+                        +Ring(80, true)
+                        +Ring(70, true)
+                        +ForPedal(3, 6, 30, 20)
+                        +ForPedal(2, 6, 20, 20)
+                        +ForPedal(1, 12, 10, 10)
+                        +Ring(25, true)
+                        +Ring(10, false)
+                    .slide.about 
+                        h5 About 
+                        p Hello! My name is Ethan Philpott and I am a junior programmer based in Arizona. As you may have noticed, the majority of graphics on this website are made entirely by styling divs. While this is not computationally sound and it would have been much faster and easier to use SVGs and Javascript, I figured I'd take up the challenge of making this website using as little Javascript as possible. Using the power of Pug and Sass, I was able to make the montrosity you are viewing now. If you would like to see the same website using SVGs and Javascript follow
+                            | 
+                            a(href="#") This Link
+                    .slide.skills 
+                        h5 Skills 
+                    .slide.projects 
+                        h5 Projects 
+                    .slide.contact 
+                        h5 Contant
+                    .slide.resume
+                        h5 Resume 
+                    .slide.credits
+                        h5 Credits
+                        footer 
+                            div Icons made by 
+                                a(href="https://www.freepik.com" title="Freepik") Freepik
+                                span from 
+                                a(href="https://www.flaticon.com/" title="Flaticon") www.flaticon.com
+                            div Icons made by 
+                                a(href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect") Pixel perfect 
+                                span from 
+                                a(href="https://www.flaticon.com/" title="Flaticon") www.flaticon.com
             section.photo-and-details.white-bg
                 .details 
                     .self-photo
