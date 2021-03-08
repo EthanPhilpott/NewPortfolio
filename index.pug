@@ -95,6 +95,12 @@ body
         article.title-card
             section.content.black-bg
                 //- This is the slides nav, I can't put it in a div becuase of the way I am doing selectors
+                input#slide1-btn(type="radio", name="slide" checked) 
+                input#slide2-btn(type="radio", name="slide") 
+                input#slide3-btn(type="radio", name="slide") 
+                input#slide4-btn(type="radio", name="slide") 
+                input#slide5-btn(type="radio", name="slide") 
+                input#slide6-btn(type="radio", name="slide") 
                 div.label-cont 
                     label(for="#slide1-btn") About 
                     label(for="#slide2-btn") Skills 
@@ -102,12 +108,6 @@ body
                     label(for="#slide4-btn") Contact 
                     label(for="#slide5-btn") Resume 
                     label(for="#slide6-btn") Credits 
-                input#slide1-btn(type="radio", name="slide") 
-                input#slide2-btn(type="radio", name="slide") 
-                input#slide3-btn(type="radio", name="slide") 
-                input#slide4-btn(type="radio", name="slide") 
-                input#slide5-btn(type="radio", name="slide") 
-                input#slide6-btn(type="radio", name="slide") 
                 .slides 
                     .mandala
                         +ForDash(3, 24, 10, 5)

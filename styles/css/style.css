@@ -2029,6 +2029,126 @@ a {
           transform: translate(-60.95322px, -306.49539px) rotate(10.79922rad);
 }
 
+.content input:nth-child(1) {
+  -webkit-transform: translate(0px, -299.99997px) rotate(4.71239rad);
+          transform: translate(0px, -299.99997px) rotate(4.71239rad);
+}
+
+.content input:nth-child(2) {
+  -webkit-transform: translate(77.64571px, -289.77763px) rotate(4.97419rad);
+          transform: translate(77.64571px, -289.77763px) rotate(4.97419rad);
+}
+
+.content input:nth-child(3) {
+  -webkit-transform: translate(150px, -259.80724px) rotate(5.23599rad);
+          transform: translate(150px, -259.80724px) rotate(5.23599rad);
+}
+
+.content input:nth-child(4) {
+  -webkit-transform: translate(212.13203px, -212.13087px) rotate(5.49779rad);
+          transform: translate(212.13203px, -212.13087px) rotate(5.49779rad);
+}
+
+.content input:nth-child(5) {
+  -webkit-transform: translate(259.80762px, -149.99661px) rotate(5.75959rad);
+          transform: translate(259.80762px, -149.99661px) rotate(5.75959rad);
+}
+
+.content input:nth-child(6) {
+  -webkit-transform: translate(289.77775px, -77.63634px) rotate(6.02139rad);
+          transform: translate(289.77775px, -77.63634px) rotate(6.02139rad);
+}
+
+.content input:nth-child(7) {
+  -webkit-transform: translate(300px, 0px) rotate(6.28319rad);
+          transform: translate(300px, 0px) rotate(6.28319rad);
+}
+
+.content input:nth-child(8) {
+  -webkit-transform: translate(289.77775px, 77.64571px) rotate(6.54498rad);
+          transform: translate(289.77775px, 77.64571px) rotate(6.54498rad);
+}
+
+.content input:nth-child(9) {
+  -webkit-transform: translate(259.80762px, 150px) rotate(6.80678rad);
+          transform: translate(259.80762px, 150px) rotate(6.80678rad);
+}
+
+.content input:nth-child(10) {
+  -webkit-transform: translate(212.13203px, 212.13203px) rotate(7.06858rad);
+          transform: translate(212.13203px, 212.13203px) rotate(7.06858rad);
+}
+
+.content input:nth-child(11) {
+  -webkit-transform: translate(150px, 259.80762px) rotate(7.33038rad);
+          transform: translate(150px, 259.80762px) rotate(7.33038rad);
+}
+
+.content input:nth-child(12) {
+  -webkit-transform: translate(77.64571px, 289.77775px) rotate(7.59218rad);
+          transform: translate(77.64571px, 289.77775px) rotate(7.59218rad);
+}
+
+.content input:nth-child(13) {
+  -webkit-transform: translate(0px, 300px) rotate(7.85398rad);
+          transform: translate(0px, 300px) rotate(7.85398rad);
+}
+
+.content input:nth-child(14) {
+  -webkit-transform: translate(-77.64571px, 289.77775px) rotate(8.11578rad);
+          transform: translate(-77.64571px, 289.77775px) rotate(8.11578rad);
+}
+
+.content input:nth-child(15) {
+  -webkit-transform: translate(-150.0px, 259.80762px) rotate(8.37758rad);
+          transform: translate(-150.0px, 259.80762px) rotate(8.37758rad);
+}
+
+.content input:nth-child(16) {
+  -webkit-transform: translate(-212.13203px, 212.13203px) rotate(8.63938rad);
+          transform: translate(-212.13203px, 212.13203px) rotate(8.63938rad);
+}
+
+.content input:nth-child(17) {
+  -webkit-transform: translate(-259.80762px, 150px) rotate(8.90118rad);
+          transform: translate(-259.80762px, 150px) rotate(8.90118rad);
+}
+
+.content input:nth-child(18) {
+  -webkit-transform: translate(-289.77774px, 77.64571px) rotate(9.16298rad);
+          transform: translate(-289.77774px, 77.64571px) rotate(9.16298rad);
+}
+
+.content input:nth-child(19) {
+  -webkit-transform: translate(-299.99997px, 0px) rotate(9.42478rad);
+          transform: translate(-299.99997px, 0px) rotate(9.42478rad);
+}
+
+.content input:nth-child(20) {
+  -webkit-transform: translate(-289.77763px, -77.64571px) rotate(9.68658rad);
+          transform: translate(-289.77763px, -77.64571px) rotate(9.68658rad);
+}
+
+.content input:nth-child(21) {
+  -webkit-transform: translate(-259.80724px, -150.0px) rotate(9.94838rad);
+          transform: translate(-259.80724px, -150.0px) rotate(9.94838rad);
+}
+
+.content input:nth-child(22) {
+  -webkit-transform: translate(-212.13087px, -212.13203px) rotate(10.21018rad);
+          transform: translate(-212.13087px, -212.13203px) rotate(10.21018rad);
+}
+
+.content input:nth-child(23) {
+  -webkit-transform: translate(-149.99661px, -259.80762px) rotate(10.47198rad);
+          transform: translate(-149.99661px, -259.80762px) rotate(10.47198rad);
+}
+
+.content input:nth-child(24) {
+  -webkit-transform: translate(-77.63634px, -289.77774px) rotate(10.73377rad);
+          transform: translate(-77.63634px, -289.77774px) rotate(10.73377rad);
+}
+
 @-webkit-keyframes Spin-clockwise-1 {
   to {
     -webkit-transform: scale(1) rotate(360deg);
@@ -2326,36 +2446,93 @@ body main article.title-card section.content .label-cont label {
   left: 0;
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
 }
 
 body main article.title-card section.content input[type="radio"] {
   position: absolute;
+  z-index: 99;
   top: 100vh;
+  width: 15em;
+  height: 7em;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
   left: 0;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
 }
 
-body main article.title-card section.content input[type="radio"] #slide1-btn::after {
-  content: "About";
+body main article.title-card section.content input[type="radio"]#slide1-btn:checked ~ .label-cont label[for="#slide1-btn"] {
+  color: #06d6a0;
 }
 
-body main article.title-card section.content input[type="radio"] #slide1-btn::after {
-  content: "Skills";
+body main article.title-card section.content input[type="radio"]#slide1-btn:checked ~ .slides .slide {
+  opacity: 0;
 }
 
-body main article.title-card section.content input[type="radio"] #slide1-btn::after {
-  content: "Projects";
+body main article.title-card section.content input[type="radio"]#slide1-btn:checked ~ .slides .about {
+  opacity: 1;
 }
 
-body main article.title-card section.content input[type="radio"] #slide1-btn::after {
-  content: "Contact";
+body main article.title-card section.content input[type="radio"]#slide2-btn:checked ~ .label-cont label[for="#slide2-btn"] {
+  color: #06d6a0;
 }
 
-body main article.title-card section.content input[type="radio"] #slide1-btn::after {
-  content: "Resume";
+body main article.title-card section.content input[type="radio"]#slide2-btn:checked ~ .slides .slide {
+  opacity: 0;
 }
 
-body main article.title-card section.content input[type="radio"] #slide1-btn::after {
-  content: "Credits";
+body main article.title-card section.content input[type="radio"]#slide2-btn:checked ~ .slides .skills {
+  opacity: 1;
+}
+
+body main article.title-card section.content input[type="radio"]#slide3-btn:checked ~ .label-cont label[for="#slide3-btn"] {
+  color: #06d6a0;
+}
+
+body main article.title-card section.content input[type="radio"]#slide3-btn:checked ~ .slides .slide {
+  opacity: 0;
+}
+
+body main article.title-card section.content input[type="radio"]#slide3-btn:checked ~ .slides .projects {
+  opacity: 1;
+}
+
+body main article.title-card section.content input[type="radio"]#slide4-btn:checked ~ .label-cont label[for="#slide4-btn"] {
+  color: #06d6a0;
+}
+
+body main article.title-card section.content input[type="radio"]#slide4-btn:checked ~ .slides .slide {
+  opacity: 0;
+}
+
+body main article.title-card section.content input[type="radio"]#slide4-btn:checked ~ .slides .contact {
+  opacity: 1;
+}
+
+body main article.title-card section.content input[type="radio"]#slide5-btn:checked ~ .label-cont label[for="#slide5-btn"] {
+  color: #06d6a0;
+}
+
+body main article.title-card section.content input[type="radio"]#slide5-btn:checked ~ .slides .slide {
+  opacity: 0;
+}
+
+body main article.title-card section.content input[type="radio"]#slide5-btn:checked ~ .slides .resume {
+  opacity: 1;
+}
+
+body main article.title-card section.content input[type="radio"]#slide6-btn:checked ~ .label-cont label[for="#slide6-btn"] {
+  color: #06d6a0;
+}
+
+body main article.title-card section.content input[type="radio"]#slide6-btn:checked ~ .slides .slide {
+  opacity: 0;
+}
+
+body main article.title-card section.content input[type="radio"]#slide6-btn:checked ~ .slides .credits {
+  opacity: 1;
 }
 
 body main article.title-card section.content .slides {
@@ -2381,6 +2558,8 @@ body main article.title-card section.content .slides .mandala {
 }
 
 body main article.title-card section.content .slides .slide {
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
   opacity: 0;
   color: #ebebeb;
   padding: 5rem;

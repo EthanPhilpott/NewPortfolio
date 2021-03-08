@@ -152,6 +152,13 @@ $rad: (
         offset: $PI / 2 * 3 - $PI / 24 * 1.5,
         distance: 312.5,
     ),
+    navselect: (
+        parent: ".content",
+        target: "input",
+        number: 24,
+        offset: $PI + $PI / 2 - $PI / 12,
+        distance: 300,
+    ),
 );
 
 // ███████╗██╗░░░██╗███╗░░██╗░█████╗░████████╗██╗░█████╗░███╗░░██╗░██████╗
@@ -389,40 +396,82 @@ body {
                         top: 100vh;
                         left: 0;
                         transform-origin: 0 0;
+                        transition: color 0.5s;
                     }
                 }
                 input[type="radio"] {
                     position: absolute;
+                    z-index: 99;
                     top: 100vh;
+                    width: 15em;
+                    height: 7em;
+                    transform-origin: 0 0;
                     left: 0;
-                    #slide1-btn {
-                        &::after {
-                            content: "About";
+                    transition: color 0.5s;
+                    &#slide1-btn:checked {
+                        ~ .label-cont label[for="#slide1-btn"] {
+                            color: map-get($palette, "hl");
+                        }
+                        ~ .slides .slide {
+                            opacity: 0;
+                        }
+                        ~ .slides .about {
+                            opacity: 1;
                         }
                     }
-                    #slide1-btn {
-                        &::after {
-                            content: "Skills";
+                    &#slide2-btn:checked {
+                        ~ .label-cont label[for="#slide2-btn"] {
+                            color: map-get($palette, "hl");
+                        }
+                        ~ .slides .slide {
+                            opacity: 0;
+                        }
+                        ~ .slides .skills {
+                            opacity: 1;
                         }
                     }
-                    #slide1-btn {
-                        &::after {
-                            content: "Projects";
+                    &#slide3-btn:checked {
+                        ~ .label-cont label[for="#slide3-btn"] {
+                            color: map-get($palette, "hl");
+                        }
+                        ~ .slides .slide {
+                            opacity: 0;
+                        }
+                        ~ .slides .projects {
+                            opacity: 1;
                         }
                     }
-                    #slide1-btn {
-                        &::after {
-                            content: "Contact";
+                    &#slide4-btn:checked {
+                        ~ .label-cont label[for="#slide4-btn"] {
+                            color: map-get($palette, "hl");
+                        }
+                        ~ .slides .slide {
+                            opacity: 0;
+                        }
+                        ~ .slides .contact {
+                            opacity: 1;
                         }
                     }
-                    #slide1-btn {
-                        &::after {
-                            content: "Resume";
+                    &#slide5-btn:checked {
+                        ~ .label-cont label[for="#slide5-btn"] {
+                            color: map-get($palette, "hl");
+                        }
+                        ~ .slides .slide {
+                            opacity: 0;
+                        }
+                        ~ .slides .resume {
+                            opacity: 1;
                         }
                     }
-                    #slide1-btn {
-                        &::after {
-                            content: "Credits";
+                    &#slide6-btn:checked {
+                        ~ .label-cont label[for="#slide6-btn"] {
+                            color: map-get($palette, "hl");
+                        }
+                        ~ .slides .slide {
+                            opacity: 0;
+                        }
+                        ~ .slides .credits {
+                            opacity: 1;
                         }
                     }
                 }
@@ -435,6 +484,7 @@ body {
                         align-self: flex-end;
                     }
                     .slide {
+                        transition: opacity 0.5s;
                         opacity: 0;
                         color: map-get($palette, "line");
                         padding: 5rem;
